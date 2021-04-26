@@ -1,0 +1,14 @@
+{
+  "name": "root-html-file",
+  "description": "Micro FrontEnd Application",
+  "main": "index.js",
+  "scripts": {
+    "start": "serve -s -l 4200"
+  },
+  "author": "none",
+  "license": "MIT",
+  "devDependencies": {
+    "serve": "^11.1.0"
+  },
+  "dependencies": {}
+}

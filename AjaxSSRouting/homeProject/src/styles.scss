@@ -1,0 +1,89 @@
+$white: #EBECEC;
+$timing: 10s;
+
+@function makelongshadow($length,$angle) {
+    $val: 0px 0px transparent;
+    @for $i from 1 through $length {
+      $val: #{$val}, #{$i}px #{$i*$angle}px #aaa;
+    }
+    @return $val;
+  }
+  
+  @import url('https://fonts.googleapis.com/css?family=Roboto:700,900');
+  
+  
+//   body {
+//     background: black;
+//     background-size: 100vw 100vh; 
+//     overflow: hidden;
+//     padding-top: 40vh;
+//   }
+
+  body {
+	background: #141414;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+	font-weight: 300;
+	color: #6D6D6D;
+	h1 {
+		color: #fff;
+		font-size: 50px;
+	}
+	a {
+		padding: 5px 15px;
+		color: #6D6D6D;
+		font-size: 17px;
+		text-decoration: none;
+		text-transform: uppercase;
+		border: 1px solid #6D6D6D;
+		transition: all 300ms ease;
+		&:hover {
+			color:  $white;
+			border: 1px solid $white;
+		}
+	}
+	opacity: 0;
+	animation: fade-in 500ms ease 200ms 1 forwards;
+}
+  
+  .txt {
+    text-align: center;
+    font-family: 'Roboto';
+    font-size: 12vmin;
+    font-weight: 700;
+    animation: netflix_style 3.5s infinite;
+    outline: none;
+    white-space: nowrap;
+  }
+  
+  @keyframes netflix_style {
+    0% {
+      text-shadow: makelongshadow(100,1);
+      color:#f3f3f3;
+      transform: scale(1.5, 1.5);
+    }
+    10% {
+      text-shadow: makelongshadow(100,1.5);
+      color:#f3f3f3;
+      transform: scale(1.5, 1.5);
+    }
+    15% {
+       color:#f3f3f3;
+    }
+    20% {    
+      color:#e90418;
+      text-shadow: none;
+      transform: scale(1.1, 1.1);
+    }
+    75% {
+      opacity: 1;
+    }
+    80% {
+      opacity: 0;    
+      color:#e90418;
+      transform: scale(0.85, 0.9);
+    }
+    
+    100% {
+      opacity: 0;
+    }
+  }

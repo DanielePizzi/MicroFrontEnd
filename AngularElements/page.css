@@ -1,0 +1,348 @@
+* {
+  box-sizing: border-box;
+  font-family: Netflix Sans,Arial, sans-serif;
+  font-size: 100%;
+}
+
+body {
+  background-color: #333;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+}
+
+#logo{ 
+  position:absolute; 
+  top:0; 
+  left:0; 
+  z-index: 10;
+} 
+
+aside {
+  border-top: 1px solid gray;
+  padding-top: 20px;
+}
+
+dl {
+  display: grid;
+  grid-column-gap: 15px;
+  grid-row-gap: 2px;
+  grid-template-columns: 2fr 1fr;
+  max-width: 300px;
+}
+
+dt {
+  text-align: right;
+}
+
+dd {
+  margin: 0;
+}
+
+#app {
+  display: grid;
+  grid-column-gap: 20px;
+  grid-gap: 20px;
+  grid-row-gap: 10px;
+  margin: 20px auto;
+  min-width: 500px;
+  outline: 3px dashed orangered;
+  padding: 15px;
+  margin-top: 6em;
+}
+
+@media only screen and (max-width: 999px) {
+  #app {
+    grid-template-areas:
+      'store cart'
+      'image name'
+      'image options'
+      'image buy'
+      'reco reco';
+    grid-template-columns: 4fr 3fr;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  #app {
+    grid-template-areas:
+      'store cart  reco'
+      'image name    reco'
+      'image options reco'
+      'image buy     reco';
+    grid-template-columns: 4fr 3fr 200px;
+  }
+}
+
+#store {
+  font-weight: 400;
+  grid-area: store;
+  margin-top: 5px;
+}
+
+#cart {
+  align-self: baseline;
+  grid-area: cart;
+  justify-self: end;
+  margin-top: 11px;
+}
+
+#cart .empty,
+#cart .filled {
+  border-radius: 5px;
+  color: black;
+  font-size: 1.6rem;
+  font-weight: bold;
+  line-height: 2.4rem; 
+  padding: 5px 10px;
+  text-transform: capitalize;
+}
+
+#cart .empty {
+  background-color: white;
+}
+
+#cart .filled {
+  background-color: white;
+}
+
+#image {
+  grid-area: image;
+  width: 100%;
+}
+
+#image > div {
+  padding-top: 100%;
+  position: relative;
+}
+
+#image img {
+  bottom: 0;
+  left: 0;
+  max-width: 384px;
+  max-height: 530px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-radius: 6%;
+}
+
+#name {
+  font-weight: 400;
+  grid-area: name;
+  font-size: 22px;
+  font-weight: bold;
+  line-height: 2.4rem; 
+  text-transform: capitalize;
+  color: white;
+  text-align: center;
+}
+
+#name small {
+  font-size: 1em;
+  font-weight: 200;
+}
+
+#options {
+  align-self: center;
+  display: flex;
+  grid-area: options;
+}
+
+#options button {
+  border: none;
+  cursor: pointer;
+  display: block;
+  margin: 5px;
+  outline: none;
+  padding: 0;
+}
+
+#options button:hover {
+  border-bottom-color: seagreen;
+  transform: translateX(25%);
+  transform: scale(1.5);
+  transition: transform 500ms;
+}
+
+#options img {
+  display: block;
+  max-width: 175px;
+  max-height: 250px;
+  border-radius: 6%;
+}
+
+#buy {
+  align-self: center;
+  grid-area: buy;
+}
+
+#buy button {
+  background: none;
+  border: 1px solid gray;
+  border-radius: 20px;
+  cursor: pointer;
+  display: block;
+  font-size: 20px;
+  outline: none;
+  padding: 20px;
+  width: 100%;
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 2.4rem; 
+  text-transform: capitalize;
+}
+
+#buy button:hover {
+  border-color: black;
+  opacity: 0.9;
+  filter: alpha(opacity=90);
+}
+
+#buy button:active {
+  border-color: seagreen;
+}
+
+#reco {
+  grid-area: reco;
+}
+
+@media only screen and (max-width: 999px) {
+  #reco {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 20px;
+    padding-top: 20px;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  #reco {
+    justify-content: stretch;
+    text-align: center;
+    width: 100%;
+  }
+}
+
+#reco h3 {
+  font-size: 22px;
+  font-weight: bold;
+  line-height: 2.4rem; 
+  text-transform: capitalize;
+  color: white;
+}
+
+#reco img {
+  display: inline-block;
+  height: 250px;
+  width: 180px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+green-recos {
+  display: block;
+  outline: 3px dashed forestgreen;
+  width: 100%;
+}
+
+blue-cart {
+  display: block;
+  outline: 3px dashed royalblue;
+  padding: 10px;
+}
+
+blue-buy {
+  display: block;
+  outline: 3px dashed royalblue;
+  padding: 5px;
+}
+
+/* FONT */
+
+@font-face {
+    font-family: 'Netflix Sans';
+    font-weight: 100;
+    font-display: optional;
+    src: url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Th.woff2) format('woff2'),url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Th.woff) format('woff')
+}
+
+@font-face {
+    font-family: 'Netflix Sans';
+    font-weight: 300;
+    font-display: optional;
+    src: url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Lt.woff2) format('woff2'),url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Lt.woff) format('woff')
+}
+
+@font-face {
+    font-family: 'Netflix Sans';
+    font-weight: 400;
+    font-display: optional;
+    src: url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Rg.woff2) format('woff2'),url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Rg.woff) format('woff')
+}
+
+@font-face {
+    font-family: 'Netflix Sans';
+    font-weight: 700;
+    font-display: optional;
+    src: url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Md.woff2) format('woff2'),url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Md.woff) format('woff')
+}
+
+@font-face {
+    font-family: 'Netflix Sans';
+    font-weight: 800;
+    font-display: optional;
+    src: url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Bd.woff2) format('woff2'),url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Bd.woff) format('woff')
+}
+
+@font-face {
+    font-family: 'Netflix Sans';
+    font-weight: 900;
+    font-display: optional;
+    src: url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Blk.woff2) format('woff2'),url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Blk.woff) format('woff')
+}
+
+.netflix-sans-font-loaded {
+    font-family: 'Netflix Sans','Helvetica Neue',Helvetica,Arial,sans-serif
+}
+
+.netflix-sans-font-loaded.nkufi-font-loaded {
+    font-family: NKufi,'Netflix Sans','Helvetica Neue',Helvetica,Arial,sans-serif
+}
+
+.netflix-sans-font-loaded.graphik-font-loaded {
+    font-family: GraphikTH,'Netflix Sans','Helvetica Neue',Helvetica,Arial,sans-serif
+}
+
+.error-page {
+    font-family: 'Netflix Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-size: 10px;
+    line-height: 1.2;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #fff;
+    background: rgba(0,0,0,.18);
+    bottom: 0;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -moz-box-orient: vertical;
+    -moz-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    left: 0;
+    margin-top: 68px;
+    overflow: hidden;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1000
+}
